@@ -1,6 +1,7 @@
 import React from 'react'
-import WelcomeScreen from './app/screens/WelcomeScreen'
+import DetailScreen from './app/screens/DetailScreen'
+// import WelcomeScreen from './app/screens/WelcomeScreen'
 
 export default function App() {
-  return <WelcomeScreen />
+  return <DetailScreen />
 }
