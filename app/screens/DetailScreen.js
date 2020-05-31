@@ -1,6 +1,8 @@
 import React from 'react'
 import { Image, StyleSheet, View } from 'react-native'
 
+import colors from '../config/colors'
+
 function DetailScreen() {
   return (
     <View style={styles.container}>
@@ -9,6 +11,7 @@ function DetailScreen() {
         <View style={styles.closeButton} />
       </View>
       <Image
+        resizeMode='contain'
         style={styles.customImage}
         source={require('../assets/chair.jpg')}
       />
@@ -18,18 +21,17 @@ function DetailScreen() {
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: '#000',
+    backgroundColor: colors.black,
     flex: 1,
     justifyContent: 'center',
   },
   customImage: {
     width: '100%',
-    height: '70%',
   },
   closeButton: {
     width: 50,
     height: 50,
-    backgroundColor: '#fc5c65',
+    backgroundColor: colors.primary,
     position: 'absolute',
     right: 20,
   },
@@ -42,7 +44,7 @@ const styles = StyleSheet.create({
   garbageButton: {
     width: 50,
     height: 50,
-    backgroundColor: '#4ecdc4',
+    backgroundColor: colors.secondary,
     position: 'absolute',
     left: 20,
   },
