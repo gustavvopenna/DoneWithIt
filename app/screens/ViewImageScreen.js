@@ -9,10 +9,10 @@ function DetailScreen() {
     <View style={styles.container}>
       <View style={styles.iconsContainer}>
         <View style={styles.deleteIcon}>
-          <MaterialCommunityIcons name="trash-can-outline" size={30} color="white" />
+          <MaterialCommunityIcons name="trash-can-outline" size={35} color="white" />
         </View>
         <View style={styles.closeIcon}>
-          <MaterialIcons name="close" size={30} color="white" />
+          <MaterialIcons name="close" size={35} color="white" />
         </View>
       </View>
       <Image
