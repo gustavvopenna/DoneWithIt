@@ -1,8 +1,8 @@
 import React from 'react'
 import { Text, StyleSheet, Platform } from 'react-native'
 
-function AppText({ children, type = 'text' }) {
-  return <Text style={styles[type]}>{children}</Text>
+function AppText({ children, type = 'text', style }) {
+  return <Text style={[styles[type], style]}>{children}</Text>
 }
 
 const styles = StyleSheet.create({
