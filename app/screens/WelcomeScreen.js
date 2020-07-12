@@ -18,8 +18,8 @@ function WelcomeScreen(props) {
         <AppText>Sell what you don´t need</AppText>
       </View>
       <View style={styles.buttonsContainer}>
-        <AppButton title='Login' color={colors.primary} />
-        <AppButton title='Register' color={colors.secondary} />
+        <AppButton title='Login' />
+        <AppButton title='Register' color="secondary" />
       </View>
     </ImageBackground>
   )
@@ -35,11 +35,6 @@ const styles = StyleSheet.create({
     height: 150,
     justifyContent: 'space-evenly',
   },
-  loginButton: {
-    width: '100%',
-    height: 70,
-    backgroundColor: '#fc5c65',
-  },
   logoContainer: {
     width: '100%',
     position: 'absolute',
@@ -50,12 +45,7 @@ const styles = StyleSheet.create({
     width: 100,
     height: 100,
     marginBottom: 20,
-  },
-  registerButton: {
-    width: '100%',
-    height: 70,
-    backgroundColor: '#4ecdc4',
-  },
+  }
 })
 
 export default WelcomeScreen
