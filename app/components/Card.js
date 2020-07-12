@@ -3,6 +3,7 @@
 import React from 'react'
 import { View, StyleSheet, Image } from 'react-native'
 import AppText from './AppText'
+import colors from '../config/colors'
 
 const BORDER_RADIUS = 12
 
@@ -10,9 +11,8 @@ function Card({ title, subtitle, image }) {
   return (
     <View style={styles.card}>
       <Image source={image} style={styles.header} />
-      <View style={styles.body}>
-        <AppText type='text'>{title}</AppText>
-        <View style={{ height: 5 }} />
+      <View style={styles.detailsContainer}>
+        <AppText type='text' style={{ marginBottom: 5 }}>{title}</AppText>
         <AppText type='cardSubtitle'>{subtitle}</AppText>
       </View>
     </View>
@@ -21,16 +21,15 @@ function Card({ title, subtitle, image }) {
 
 const styles = StyleSheet.create({
   card: {
-    backgroundColor: '#fff',
-    borderRadius: BORDER_RADIUS
+    backgroundColor: colors.white,
+    borderRadius: BORDER_RADIUS,
+    overflow: 'hidden'
   },
   header: {
     width: '100%',
     height: 200,
-    borderTopLeftRadius: BORDER_RADIUS,
-    borderTopRightRadius: BORDER_RADIUS
   },
-  body: {
+  detailsContainer: {
     padding: 10
   }
 })
