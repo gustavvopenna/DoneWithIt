@@ -43,6 +43,7 @@ const AccountScreen = () => {
               title={item.title}
               icon={item.icon}
               iconBackgroundColor={item.iconBackgroundColor}
+              onPress={() => console.log('hello')}
             />
           )}
           ItemSeparatorComponent={ListItemSeparator}
@@ -53,6 +54,7 @@ const AccountScreen = () => {
         title="Log Out"
         icon="logout"
         iconBackgroundColor={colors.alert}
+        onPress={() => console.log('hello')}
       />
     </View>
   )

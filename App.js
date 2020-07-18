@@ -1,11 +1,12 @@
 import React from 'react'
-import { View, StyleSheet } from 'react-native'
+import { StyleSheet } from 'react-native'
 
 import AccountScreen from './app/screens/AccountScreen'
+import ListingScreen from './app/screens/ListingsScreen'
 
 export default function App() {
   return (
-    <AccountScreen />
+    <ListingScreen />
   )
 }
 

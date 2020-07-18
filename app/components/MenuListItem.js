@@ -1,21 +1,23 @@
 import React from 'react';
-import { View, StyleSheet } from 'react-native';
+import { View, StyleSheet, TouchableHighlight } from 'react-native';
 import { MaterialCommunityIcons } from '@expo/vector-icons';
 
 import AppText from '../components/AppText'
 
 import colors from '../config/colors'
 
-const MenuListItem = ({ title, icon, iconBackgroundColor }) => {
+const MenuListItem = ({ title, icon, iconBackgroundColor, onPress }) => {
   return (
-    <View style={styles.container}>
-      <View style={[styles.icon, { backgroundColor: iconBackgroundColor }]}>
-        <MaterialCommunityIcons name={icon} size={24} color={colors.white} />
+    <TouchableHighlight onPress={onPress}>
+      <View style={styles.container}>
+        <View style={[styles.icon, { backgroundColor: iconBackgroundColor }]}>
+          <MaterialCommunityIcons name={icon} size={24} color={colors.white} />
+        </View>
+        <AppText style={styles.title}>
+          {title}
+        </AppText>
       </View>
-      <AppText style={styles.title}>
-        {title}
-      </AppText>
-    </View>
+    </TouchableHighlight>
   )
 }
 
