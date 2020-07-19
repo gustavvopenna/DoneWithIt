@@ -17,7 +17,7 @@ const Icon = ({
       justifyContent: 'center',
       alignItems: 'center'
     }}>
-      <MaterialCommunityIcons name={name} color={iconColor} size={size * 0.5} />
+      <MaterialCommunityIcons name={name} color={iconColor} size={size * 0.6} />
     </View>
   )
 }
