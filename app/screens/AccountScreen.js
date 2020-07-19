@@ -2,6 +2,7 @@ import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import Constants from 'expo-constants'
 
+import Screen from '../components/Screen'
 import ListItem from '../components/ListItem'
 import ListItemSeparator from '../components/ListItemSeparator'
 import Spacer from '../components/Spacer'
@@ -9,24 +10,29 @@ import Icon from '../components/Icon'
 
 import colors from '../config/colors'
 
-const menus = [
+const menuItems = [
   {
     id: 1,
     title: 'My listings',
-    icon: 'format-list-bulleted',
-    iconBackgroundColor: colors.primary
+    icon: {
+      name: 'format-list-bulleted',
+      backgroundColor: colors.primary
+    }
   },
   {
     id: 2,
     title: 'My Messages',
-    icon: 'email',
-    iconBackgroundColor: colors.secondary
+    icon: {
+      name: 'email',
+      backgroundColor: colors.secondary
+    }
   }
 ]
 
 const AccountScreen = () => {
   return (
-    <View style={styles.container}>
+    <Screen style={styles.screen} >
+      <Spacer height={20} />
       <ListItem
         title="Gustavo Peña"
         subtitle="gustavo.pema@gmail.com"
@@ -35,7 +41,7 @@ const AccountScreen = () => {
       <Spacer height={40} />
       <View>
         <FlatList
-          data={menus}
+          data={menuItems}
           keyExtractor={(menu) => menu.id.toString()}
           renderItem={({ item }) => (
             <ListItem
@@ -43,8 +49,8 @@ const AccountScreen = () => {
               onPress={() => console.log('hello')}
               IconComponent={
                 <Icon
-                  name={item.icon}
-                  backgroundColor={item.iconBackgroundColor}
+                  name={item.icon.name}
+                  backgroundColor={item.icon.backgroundColor}
                   size={40}
                 />
               }
@@ -65,14 +71,12 @@ const AccountScreen = () => {
         title="Log Out"
         onPress={() => console.log('hello')}
       />
-    </View>
+    </Screen>
   )
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    paddingTop: Constants.statusBarHeight * 1.5,
+  screen: {
     backgroundColor: colors.light
   }
 })

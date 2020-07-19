@@ -11,7 +11,7 @@ const IMAGE_WIDTH = 60
 function ListItem({ title, subtitle, IconComponent, image, onPress, renderRightActions }) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
-      <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
+      <TouchableHighlight underlayColor={colors.gray} onPress={onPress}>
         <View style={styles.container}>
           {IconComponent}
           {image && <Image style={styles.image} source={image} />}
