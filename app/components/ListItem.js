@@ -8,15 +8,16 @@ import colors from '../config/colors'
 
 const IMAGE_WIDTH = 60
 
-function ListItem({ title, subtitle, image, onPress, renderRightActions }) {
+function ListItem({ title, subtitle, IconComponent, image, onPress, renderRightActions }) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.light} onPress={onPress}>
         <View style={styles.container}>
-          <Image style={styles.image} source={image} />
+          {IconComponent}
+          {image && <Image style={styles.image} source={image} />}
           <View style={styles.contentContainer}>
             <AppText style={styles.title}>{title}</AppText>
-            <AppText style={styles.subtitle}>{subtitle}</AppText>
+            {subtitle && <AppText style={styles.subtitle}>{subtitle}</AppText>}
           </View>
         </View>
       </TouchableHighlight>
@@ -35,7 +36,6 @@ const styles = StyleSheet.create({
     width: IMAGE_WIDTH,
     height: IMAGE_WIDTH,
     borderRadius: IMAGE_WIDTH / 2,
-    marginRight: 10
   },
   title: {
     fontSize: 16,
@@ -46,7 +46,8 @@ const styles = StyleSheet.create({
     color: colors.gray,
   },
   contentContainer: {
-
+    marginLeft: 10,
+    justifyContent: 'center'
   }
 })
 

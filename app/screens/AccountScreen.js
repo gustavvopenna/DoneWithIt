@@ -2,11 +2,10 @@ import React from 'react';
 import { View, StyleSheet, FlatList } from 'react-native';
 import Constants from 'expo-constants'
 
-import Screen from '../components/Screen'
 import ListItem from '../components/ListItem'
-import MenuListItem from '../components/MenuListItem'
 import ListItemSeparator from '../components/ListItemSeparator'
 import Spacer from '../components/Spacer'
+import Icon from '../components/Icon'
 
 import colors from '../config/colors'
 
@@ -39,21 +38,31 @@ const AccountScreen = () => {
           data={menus}
           keyExtractor={(menu) => menu.id.toString()}
           renderItem={({ item }) => (
-            <MenuListItem
+            <ListItem
               title={item.title}
-              icon={item.icon}
-              iconBackgroundColor={item.iconBackgroundColor}
               onPress={() => console.log('hello')}
+              IconComponent={
+                <Icon
+                  name={item.icon}
+                  backgroundColor={item.iconBackgroundColor}
+                  size={40}
+                />
+              }
             />
           )}
           ItemSeparatorComponent={ListItemSeparator}
         />
       </View>
       <Spacer height={20} />
-      <MenuListItem
+      <ListItem
+        IconComponent={
+          <Icon
+            name="logout"
+            backgroundColor={colors.alert}
+            size={40}
+          />
+        }
         title="Log Out"
-        icon="logout"
-        iconBackgroundColor={colors.alert}
         onPress={() => console.log('hello')}
       />
     </View>
