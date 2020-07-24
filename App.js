@@ -1,12 +1,15 @@
 import React from 'react'
-import { StyleSheet } from 'react-native'
+import { StyleSheet, View } from 'react-native'
 
 import AccountScreen from './app/screens/AccountScreen'
 import ListingScreen from './app/screens/ListingsScreen'
+import AppTextInput from './app/components/AppTextInput'
 
 export default function App() {
   return (
-    <ListingScreen />
+    <View style={styles.container}>
+      <AppTextInput icon="email" placeholder="Email" />
+    </View>
   )
 }
 
