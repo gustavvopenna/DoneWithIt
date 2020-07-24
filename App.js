@@ -1,16 +1,27 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { StyleSheet, View } from 'react-native'
 
-import AccountScreen from './app/screens/AccountScreen'
-import ListingScreen from './app/screens/ListingsScreen'
 import AppTextInput from './app/components/AppTextInput'
 import AppPicker from './app/components/AppPicker'
 
+const categories = [
+  { label: 'Furniture', value: 1 },
+  { label: 'Clothing', value: 2 },
+  { label: 'Technology', value: 3 }
+]
+
 export default function App() {
+  const [category, setCategory] = useState()
+
   return (
     <View style={styles.container}>
       <AppTextInput icon="email" placeholder="Email" />
-      <AppPicker icon="apps" placeholder="Categories" />
+      <AppPicker
+        selectedItem={category}
+        onSelectedItem={(item) => setCategory(item)}
+        items={categories}
+        icon="apps"
+        placeholder="Categories" />
     </View>
   )
 }
