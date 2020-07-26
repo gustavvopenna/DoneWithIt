@@ -17,6 +17,7 @@ function AppButton({ title, color = 'primary', handlePress }) {
 const styles = StyleSheet.create({
   button: {
     width: '100%',
+    marginVertical: 10,
     padding: 15,
     justifyContent: 'center',
     alignItems: 'center',
