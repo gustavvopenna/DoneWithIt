@@ -1,14 +1,16 @@
 import React from 'react';
 import { View, Image, StyleSheet, TouchableHighlight } from 'react-native';
+import { MaterialCommunityIcons } from '@expo/vector-icons'
 
 import Swipeable from 'react-native-gesture-handler/Swipeable';
 import AppText from '../AppText';
 
+import defaultStyles from '../../config/styles'
 import colors from '../../config/colors'
 
 const IMAGE_WIDTH = 60
 
-function ListItem({ title, subtitle, IconComponent, image, onPress, renderRightActions }) {
+function ListItem({ title, subtitle, IconComponent, image, onPress, renderRightActions, showChevrons }) {
   return (
     <Swipeable renderRightActions={renderRightActions}>
       <TouchableHighlight underlayColor={colors.gray} onPress={onPress}>
@@ -16,9 +18,23 @@ function ListItem({ title, subtitle, IconComponent, image, onPress, renderRightA
           {IconComponent}
           {image && <Image style={styles.image} source={image} />}
           <View style={styles.contentContainer}>
-            <AppText style={styles.title}>{title}</AppText>
-            {subtitle && <AppText style={styles.subtitle}>{subtitle}</AppText>}
+            <AppText
+              numberOfLines={1}
+              style={styles.title}
+            >
+              {title}
+            </AppText>
+            {subtitle && <AppText numberOfLines={3} style={styles.subtitle}>{subtitle}</AppText>}
           </View>
+          {
+            showChevrons &&
+            <MaterialCommunityIcons
+              name="chevron-right"
+              size={25}
+              color={defaultStyles.colors.gray}
+              style={styles.chevron}
+            />
+          }
         </View>
       </TouchableHighlight>
     </Swipeable>
@@ -26,10 +42,15 @@ function ListItem({ title, subtitle, IconComponent, image, onPress, renderRightA
 }
 
 const styles = StyleSheet.create({
+  chevron: {
+    position: "absolute",
+    right: 10
+  },
   container: {
     flexDirection: 'row',
     alignItems: 'center',
     padding: 15,
+    paddingRight: 100,
     backgroundColor: colors.white
   },
   image: {
