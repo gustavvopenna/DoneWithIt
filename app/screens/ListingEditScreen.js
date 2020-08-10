@@ -6,10 +6,15 @@ import Screen from '../components/Screen'
 import { AppForm, AppFormField, AppFormPicker, SubmitButton } from '../components/forms'
 
 const categories = [
-  { label: 'Furniture', value: 1 },
-  { label: 'Clothes', value: 2 },
-  { label: 'Technology', value: 3 },
-  { label: 'Home Appliances', value: 4 }
+  { label: 'Furniture', value: 1, color: '#fc5c65', icon: 'floor-lamp' },
+  { label: 'Cars', value: 2, color: '#fd9644', icon: 'car' },
+  { label: 'Cameras', value: 3, color: '#fed330', icon: 'camera' },
+  { label: 'Games', value: 5, color: '#26de81', icon: 'cards' },
+  { label: 'Clothin', value: 6, color: '#2bcbba', icon: 'shoe-heel' },
+  { label: 'Sports', value: 7, color: '#45aaf2', icon: 'basketball' },
+  { label: 'Movies & Music', value: 8, color: '#4b7bec', icon: 'headphones' },
+  { label: 'Books', value: 9, color: '#4b7bec', icon: 'headphones' },
+  { label: 'Other', value: 10, color: '#4b7bec', icon: 'headphones' }
 ]
 
 const validationSchema = Yup.object().shape({
@@ -36,11 +41,13 @@ const ListingEditScreen = () => {
           autoCorrect={false}
           name='price'
           placeholder="Price"
+          width="33%"
         />
         <AppFormPicker
           name="category"
           items={categories}
           placeholder="Categories"
+          width="50%"
         />
         <AppFormField
           autoCapitalize="none"

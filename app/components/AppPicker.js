@@ -7,13 +7,13 @@ import AppText from './AppText'
 import Screen from './Screen'
 import PickerItem from './PickerItem'
 
-const AppPicker = ({ icon, items, placeholder, selectedItem, onSelectedItem }) => {
+const AppPicker = ({ icon, items, placeholder, selectedItem, onSelectedItem, width }) => {
   const [modalVisible, setModalVisible] = useState(false)
 
   return (
     <>
       <TouchableWithoutFeedback onPress={() => setModalVisible(true)}>
-        <View style={styles.container}>
+        <View style={[styles.container, { width }]}>
           <MaterialCommunityIcons
             name={icon}
             size={25}
@@ -31,7 +31,7 @@ const AppPicker = ({ icon, items, placeholder, selectedItem, onSelectedItem }) =
       <Modal visible={modalVisible} animationType="slide">
         <Screen>
           <Button
-            title="close"
+            title="Close"
             onPress={() => setModalVisible(false)}
           />
           <FlatList
@@ -39,13 +39,16 @@ const AppPicker = ({ icon, items, placeholder, selectedItem, onSelectedItem }) =
             keyExtractor={(item) => item.value.toString()}
             renderItem={({ item }) => (
               <PickerItem
-                label={item.label}
+                item={item}
                 onPress={() => {
                   setModalVisible(false)
                   onSelectedItem(item.label)
                 }}
               />
             )}
+            numColumns={3}
+            horizontal={false}
+            columnWrapperStyle={{ justifyContent: 'space-between', marginHorizontal: 15, marginTop: 20 }}
           />
         </Screen>
       </Modal>
