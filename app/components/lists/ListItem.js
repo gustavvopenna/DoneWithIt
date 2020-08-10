@@ -24,7 +24,7 @@ function ListItem({ title, subtitle, IconComponent, image, onPress, renderRightA
             >
               {title}
             </AppText>
-            {subtitle && <AppText numberOfLines={3} style={styles.subtitle}>{subtitle}</AppText>}
+            {subtitle && <AppText numberOfLines={2} style={styles.subtitle}>{subtitle}</AppText>}
           </View>
           {
             showChevrons &&
@@ -32,7 +32,6 @@ function ListItem({ title, subtitle, IconComponent, image, onPress, renderRightA
               name="chevron-right"
               size={25}
               color={defaultStyles.colors.gray}
-              style={styles.chevron}
             />
           }
         </View>
@@ -42,15 +41,10 @@ function ListItem({ title, subtitle, IconComponent, image, onPress, renderRightA
 }
 
 const styles = StyleSheet.create({
-  chevron: {
-    position: "absolute",
-    right: 10
-  },
   container: {
     flexDirection: 'row',
     alignItems: 'center',
     padding: 15,
-    paddingRight: 100,
     backgroundColor: colors.white
   },
   image: {
@@ -67,6 +61,7 @@ const styles = StyleSheet.create({
     color: colors.gray,
   },
   contentContainer: {
+    flex: 1,
     marginLeft: 10,
     justifyContent: 'center'
   }
